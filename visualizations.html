@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css" />
+<head>
+    <div id="header">
+        <div id="frame1">   
+            <img src="assets/bean.svg" alt="Logo" id="logo">
+        <div id="nav-buttons">
+            <h2 id="home2" onclick = "window.location.href = 'index.html';">Home</h2>
+            <h2 id="visualizations" onclick= "window.location.href = 'visualizations.html';">Visualizations</h2>
+        </div>
+        </div>   
+    </div>
+</head>
+
+<body onload="diagram()">
+    
+    <div id="visualizations-hero">
+        <div id="visualizations-box">
+            <h1>
+                Visualizations
+            </h1>
+            <p>
+                Here you will learn something new about beans.
+            </p>
+        </div>
+    </div>
+
+
+    <div id="graph">
+        <div id="graph-box">
+            <div>
+                <div>
+                    <h2>
+                        Global Beans Market Size Volume Per Capita by Country in 2023
+                    </h2>
+                    <p id="link" onclick="window.location.href='https://www.reportlinker.com/dataset/9d75662118cc66384c1f3d24f8fe78c6b013682b'">
+                        Source: ReportLinker (2023)
+                    </p>
+                </div>
+                
+                <svg width="1115" height="524" viewbox="-70 -30 1600 450">
+                    <path d="M0 0 L0 450 L1500 450" stroke="#491F47" stroke-width="2" fill="none"/> <!-- y-axis line -->
+                    <text> 
+                        <tspan x="-30" y="50" font-family="Arial" stroke="#491F47">40</tspan>
+                        <tspan x="-30" y="150" font-family="Arial" stroke="#491F47">30</tspan>
+                        <tspan x="-30" y="250" font-family="Arial" stroke="#491F47">20</tspan>
+                        <tspan x="-30" y="350" font-family="Arial" stroke="#491F47">10</tspan>
+                        <tspan x="-30" y="450" font-family="Arial" stroke="#491F47">0</tspan>
+                    </text>
+                    <text> 
+                        <tspan x="1425" y="470" font-family="Arial" stroke="#491F47">Guatemala</tspan>
+                        <tspan x="1275" y="470" font-family="Arial" stroke="#491F47">Brazil</tspan>
+                        <tspan x="1125" y="470" font-family="Arial" stroke="#491F47">Nicaragua</tspan>
+                        <tspan x="975" y="470" font-family="Arial" stroke="#491F47">Honduras</tspan>
+                        <tspan x="825" y="470" font-family="Arial" stroke="#491F47">Cameroon</tspan>
+                        <tspan x="675" y="470" font-family="Arial" stroke="#491F47">Uganda</tspan>
+                        <tspan x="525" y="470" font-family="Arial" stroke="#491F47">Tanzania</tspan>
+                        <tspan x="375" y="470" font-family="Arial" stroke="#491F47">Cuba</tspan>
+                        <tspan x="225" y="470" font-family="Arial" stroke="#491F47">El Salvador</tspan>
+                        <tspan x="75" y="470" font-family="Arial" stroke="#491F47">Rwanda</tspan>
+                    </text>
+                    <text x="-60" y="300" font-size="16" font-family="Arial" stroke="#491F47" transform= "rotate(-90 -60, 295)" >Kilograms per capita (kg)</text>
+                    <text x="700" y="520" font-size="16" font-family="Arial" stroke="#491F47" >Country</text>
+
+                    <rect id="Rwanda" x="75" y="450" width="75" height="0" fill="red"/> <!-- Rwanda -->
+                    <rect id="El Salvador" x="225" y="450" width="75" height="0" fill="blue"/> <!-- El Salvador -->
+                    <rect id="Cuba" x="375" y="450" width="75" height="0" fill="green"/> <!-- Cuba -->
+                    <rect id="Tanzania" x="525" y="450" width="75" height="0" fill="yellow"/> <!-- Tanzania -->
+                    <rect id="Uganda" x="675" y="450" width="75" height="0" fill="black"/> <!-- Uganda -->
+                    <rect id="Cameroon" x="825" y="450" width="75" height="0" fill="pink"/> <!-- Cameroon -->
+                    <rect id="Honduras" x="975" y="450" width="75" height="0" fill="purple"/> <!-- Honduras -->
+                    <rect id="Nicaragua" x="1125" y="450" width="75" height="0" fill="white"/> <!-- Nicaragua -->
+                    <rect id="Brazil" x="1275" y="450" width="75" height="0" fill="grey"/> <!-- Brazil -->
+                    <rect id="Guatemala" x="1425" y="450" width="75" height="0" fill="orange"/> <!-- Guatemala -->
+                </svg>
+            </div>  
+        </div>
+    </div>
+    
+    <script src="vis.js"></script>
+
+    <div id="drawing">
+        <p>
+            Click on the bean!
+        </p>
+        <div id="drawing-box">
+            <svg xmlns=svgns onclick="beanInteraction()" width="700" height="300" viewbox="0 -50 700 250">
+                <path d="M78.5664 0C108.114 0 132.066 23.9528 132.066 53.5C132.066 55.0748 131.998 56.6336 131.864 58.1738C131.927 58.4937 131.99 58.8165 132.051 59.1426C134.67 73.2075 135.322 92.7129 128.931 116.564C122.534 140.435 112.342 156.48 102.874 166.871C98.1832 172.019 93.7748 175.665 90.2793 178.144C88.534 179.381 87.0193 180.326 85.8125 181.021C85.209 181.369 84.6807 181.655 84.2402 181.884C84.0204 181.998 83.8223 182.099 83.6465 182.186C83.5585 182.229 83.475 182.269 83.3984 182.306C83.3604 182.324 83.3233 182.342 83.2881 182.358C83.2706 182.367 83.2531 182.375 83.2363 182.383C83.2279 182.387 83.2162 182.394 83.2119 182.396C83.209 182.397 83.2055 182.397 83.0771 182.13C74.618 187.735 64.4738 191 53.5664 191C24.0192 191 0.0664062 167.047 0.0664062 137.5C0.0664062 113.869 15.3877 93.816 36.6387 86.7334C29.3941 77.6058 25.0664 66.0585 25.0664 53.5C25.0664 23.9528 49.0192 0 78.5664 0Z" fill="#FFC500"/> //bean body
+                <path d="M55 80 Q70 100 85 80" stroke="#491F47" stroke-width="2" fill="transparent"/> //smile
+                <circle cx="55" cy="60" r="5" fill="#491F47"/> //left eye
+                <circle cx="85" cy="60" r="5" fill="#491F47"/> //right eye
+                <rect id="text-box" x="140" y="-50" width="700" height="100" fill="none"/> //text box
+                <polygon id="triangle" points="142,30 142,10 120,20" fill="none"/> //text box arrow
+                <text id="text" x="150" y="10" font-family="Arial" font-size="20" fill="none">People do like their beans! Hope you learned something today, goodbye!</text>
+            </svg>
+        </div>
+    </div>
+</body>
+        
+
+
+
+<footer>
+    <div id="footer-details">
+        <div>
+            <img src="assets/bean.svg" alt="Logo" id="logo">
+        </div>
+        <div>
+            <div id="social-media">
+                <img src="assets/instagram.svg" alt="Instagram" id="instagram" onclick="window.location.href='https://www.instagram.com/jazzybean._'" class="socialmedia-button">
+                <img src="assets/youtube.svg" alt="Youtube" id="youtube" onclick="window.location.href='https://www.youtube.com/@jazzybean'" class="socialmedia-button">
+                <img src="assets/linkedin.svg" alt="Linkedin" id="linkedin" onclick="window.location.href='https://www.linkedin.com/in/jasmine-bamba-421854225/'" class="socialmedia-button">
+            </div>
+        </div>
+    </div>
+</footer>
