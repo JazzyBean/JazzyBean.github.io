@@ -1,12 +1,12 @@
 async function fetchData(){
-    const data = await d3.csv("/videogames_wide.csv");
+    const data = await d3.csv("./videogames_wide.csv");
     return data;
 }
 
 fetchData().then(async (data) => {
     const vlSpec = vl 
     .markBar()
-    .data(videoGamesData)
+    .data(data)
     .encode(
         vl.x().fieldQ("Global_Sales").aggregate("count").title('Total Global Sales (millions)'),
         vl.y().fieldN("Platform"),
@@ -19,7 +19,7 @@ fetchData().then(async (data) => {
 
   const vlSpec2 = vl
     .markSquare()
-    .data(videoGamesData)
+    .data(data)
     .encode(
         vl.x().field('Year').title('Year'),
         vl.y().sum('Global_Sales').title('Total Global Sales (millions)'),
@@ -33,7 +33,7 @@ fetchData().then(async (data) => {
 
   const vlSpec3 = vl 
     .markBar()
-    .data(videoGamesData)
+    .data(data)
     .transform(
         vl.fold(['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales'])
         .as(['Region', 'Sales'])
@@ -51,7 +51,7 @@ fetchData().then(async (data) => {
 
   const vlSpec4 = vl
     .markBar()
-    .data(videoGamesData)
+    .data(data)
     .encode(
         vl.y().fieldQ("JP_Sales").aggregate("count").title('Total Sales (millions)'),
         vl.x().fieldQ("Year"),
