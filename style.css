@@ -237,6 +237,9 @@ footer{
     font-weight: normal;
 }
 
+#a3visualizations2{
+   font-weight: normal;
+}
 
 #home:hover{
     cursor: pointer;
@@ -254,6 +257,16 @@ footer{
 }
 
 #visualizations2:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#a3visualizations:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#a3visualizations2:hover{
     cursor: pointer;
     text-decoration: underline;
 }
@@ -325,4 +338,14 @@ footer{
 .socialmedia-button:hover{
     cursor: pointer;
     transform: scale(1.1);
+}
+
+/* ASSIGNMENT 3 */
+#view,
+#view2,
+#view3,
+#view4{
+    width: 1000;
+    height: 400;
+    max-width: 800px;
 }

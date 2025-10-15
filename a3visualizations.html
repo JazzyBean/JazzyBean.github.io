@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8" />
+    <!-- Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <script>
+      const options = {
+        config: {
+          // Vega-Lite default configuration
+        },
+        init: (view) => {
+          // initialize tooltip handler
+          view.tooltip(new vegaTooltip.Handler().call);
+        },
+        view: {
+          // view constructor options
+          // remove the loader if you don't want to default to vega-datasets!
+          loader: vega.loader({
+            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+          }),
+          renderer: "canvas",
+        },
+      };
+
+      // register vega and vega-lite with the API
+      vl.register(vega, vegaLite, options);
+    </script>
+
+    <div id="header">
+        <div id="frame1">   
+            <img src="assets/bean.svg" alt="Logo" id="logo">
+        <div id="nav-buttons">
+            <h2 id="home2" onclick = "window.location.href = 'index.html';">Home</h2>
+            <h2 id="visualizations2" onclick= "window.location.href = 'visualizations.html';">Visualizations</h2>
+            <h2 id="a3visualizations" onclick= "window.location.href = 'a3visualizations.html';">A3: Visualizations</h2>
+        </div>
+        </div>   
+    </div>
+</head>
+
+<body>
+    
+    <!-- <div id="visualizations-hero">
+        <div id="visualizations-box">
+            <h1>
+                A3: Visualizations
+            </h1>
+            <p>
+                Here you will see my Assignment 3 visualizations.
+            </p>
+        </div>
+   
+    </div> -->
+    
+    <div class="container">
+        <!-- VISUALIZATIONS -->
+        <div id="view"></div>
+
+        <div id="view2"></div>
+
+        <div id="view3"></div>
+
+        <div id="view4"></div>
+    </div>
+    <script type="module" src="a3vis.js"></script>
+</body>
+
+
+<footer>
+    <div id="footer-details">
+        <div>
+            <img src="assets/bean.svg" alt="Logo" id="logo">
+        </div>
+        <div>
+            <div id="social-media">
+                <img src="assets/instagram.svg" alt="Instagram" id="instagram" onclick="window.location.href='https://www.instagram.com/jazzybean._'" class="socialmedia-button">
+                <img src="assets/youtube.svg" alt="Youtube" id="youtube" onclick="window.location.href='https://www.youtube.com/@jazzybean'" class="socialmedia-button">
+                <img src="assets/linkedin.svg" alt="Linkedin" id="linkedin" onclick="window.location.href='https://www.linkedin.com/in/jasmine-bamba-421854225/'" class="socialmedia-button">
+            </div>
+        </div>
+    </div>
+</footer>
