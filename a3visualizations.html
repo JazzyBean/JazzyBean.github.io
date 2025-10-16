@@ -4,36 +4,38 @@
 <head>
     <meta charset="UTF-8" />
     <!-- Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.0.2"></script>
 
-    npm install vega
-    npm install vega-lite
-    npm install vega-embed
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
     <script>
-      const options = {
+        const options = {
         config: {
-          // Vega-Lite default configuration
+          // vega-lite default configuration
         },
         init: (view) => {
           // initialize tooltip handler
           view.tooltip(new vegaTooltip.Handler().call);
+          // enable horizontal scrolling for large plots
+          if (view.container()) view.container().style["overflow-x"] = "auto";
         },
         view: {
           // view constructor options
-          // remove the loader if you don't want to default to vega-datasets!
           loader: vega.loader({
-            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@1/",
           }),
           renderer: "canvas",
         },
       };
 
-      // register vega and vega-lite with the API
       vl.register(vega, vegaLite, options);
     </script>
+
+    <script type="module" src="a3vis.js"></script>
 
     <div id="header">
         <div id="frame1">   
@@ -63,15 +65,36 @@
     
     <div class="container">
         <!-- VISUALIZATIONS -->
+         <h2>
+            Visualization 1: Global Sales by Genre and Platform 
+         </h2>
+         <p>
+            I chose to create a simple, colour bar graph because I would be able to represent the global sales of the different video game platforms sold. 
+         </p>
         <div id="view"></div>
-
+        <h2>
+            Visualization 2: Sales Over Time by Platform and Genre
+         </h2>
+          <p>
+            I chose to create a plot graph because I wanted to try something different and see the sales over time. 
+          </p>
         <div id="view2"></div>
-
+         <h2>
+            Visualization 3: Regional Sales vs. Platform
+         </h2>
+        <p>
+            I chose another simple bar graph for this visualization because I wanted to simply see the number of sales from different regions for each video game platform. 
+        </p>
         <div id="view3"></div>
-
+         <h2>
+            Visualization 4: Tell Us a Visual Story
+         </h2>
+         <p>
+            In this final visualization, I wanted to explore the sales in Japan over time because I was curious about this region due to the majority of the video games and platforms being from Japan.
+        </p>
         <div id="view4"></div>
     </div>
-    <script type="module" src="a3vis.js"></script>
+    
 </body>
 
 

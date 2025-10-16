@@ -1,9 +1,6 @@
 async function fetchData(){
-    const data = await d3.csv("./videogames_wide.csv");
-    return data;
-}
-
-fetchData().then(async (data) => {
+    const data = await d3.csv("videogames_wide.csv");
+    // return data;
     const vlSpec = vl 
     .markBar()
     .data(data)
@@ -12,8 +9,6 @@ fetchData().then(async (data) => {
         vl.y().fieldN("Platform"),
         vl.color().fieldN("Genre")
   )
-  .width("container")
-  .height(400)
   .title('Global Sales by Platform and Genre')
   .toSpec();
 
@@ -26,10 +21,8 @@ fetchData().then(async (data) => {
         vl.color().fieldN('Genre').title('Genre'),
         vl.detail().fieldN('Platform'),
   )
-  .width("container")
-  .height(400)
   .title('Sales Over Time by Platform and Genre')
-  .toSpec()
+  .toSpec();
 
   const vlSpec3 = vl 
     .markBar()
@@ -44,10 +37,8 @@ fetchData().then(async (data) => {
         vl.color().fieldN('Region').title('Regions'),
         vl.tooltip(['Platform', 'Region', 'Sales'])
   )
-  .width("container")
-  .height(400)
   .title('Regional Sales by Platform')
-  .toSpec()
+  .toSpec();
 
   const vlSpec4 = vl
     .markBar()
@@ -56,23 +47,17 @@ fetchData().then(async (data) => {
         vl.y().fieldQ("JP_Sales").aggregate("count").title('Total Sales (millions)'),
         vl.x().fieldQ("Year"),
   )
-  .width("container")
-  .height(400)
   .title('Sales in Japan over time')
-  .toSpec()
+  .toSpec();
 
-  vegaEmbed("view", vlSpec);
-  vegaEmbed("view2", vlSpec2);
-  vegaEmbed("view3", vlSpec3);
-  vegaEmbed("view4", vlSpec4);
+  vegaEmbed("#view", vlSpec);
+  vegaEmbed("#view2", vlSpec2);
+  vegaEmbed("#view3", vlSpec3);
+  vegaEmbed("#view4", vlSpec4);
 
-});
+}
 
-
-// async function render(viewID, spec) {
-//   const result = await vegaEmbed(viewID, spec);
-//   result.view.run();
-// }
+fetchData();
 
 async function render(viewID, spec) {
   const result = await vegaEmbed(`#${viewID}`, spec);

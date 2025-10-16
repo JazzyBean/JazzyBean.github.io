@@ -341,19 +341,22 @@ footer{
 }
 
 /* ASSIGNMENT 3 */
-#view,
+/* #view,
 #view2,
 #view3,
 #view4{
     width: 1000;
     height: 400;
     max-width: 800px;
-}
+} */
 
 .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+}
+
+body{
+    margin:0;
 }
